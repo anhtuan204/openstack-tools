@@ -19,28 +19,28 @@
 ### 1.1. Đặt IP theo IP Planning cho từng node.
 - Trên Controller thực hiện
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
-	bash setup_ip.sh controller1 10.10.10.115 10.10.13.115 10.10.12.115 10.10.11.115
+	curl -O https://raw.githubusercontent.com/anhtuan204/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
+	bash setup_ip.sh controller 10.10.10.20 10.10.13.20 10.10.12.20 10.10.11.20
 	```
 
 - Trên Compute1 thực hiện
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
-	bash setup_ip.sh compute1 10.10.10.116 10.10.13.116 10.10.12.116 10.10.11.116
+	curl -O https://raw.githubusercontent.com/anhtuan204/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
+	bash setup_ip.sh controller 10.10.10.21 10.10.13.21 10.10.12.21 10.10.11.21
 	```
 
 - Trên Compute2 thực hiện
 
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
-	bash setup_ip.sh compute2 10.10.10.117 10.10.13.117 10.10.12.117 10.10.11.117
+	curl -O https://raw.githubusercontent.com/anhtuan204/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
+	bash setup_ip.sh compute2 10.10.10.22 10.10.13.22 10.10.12.22 10.10.11.22
 	```
 
 - Thực hiện trên máy Cinder
 
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
-	bash setup_ip.sh cinder1 192.168.70.123 192.168.82.123 192.168.81.123 192.168.84.123
+	curl -O https://raw.githubusercontent.com/anhtuan204/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
+	bash setup_ip.sh cinder1 10.10.10.23 10.10.13.23 10.10.12.23 10.10.11.23
 	```
 
 	
@@ -56,7 +56,7 @@
 - Cài đặt git và script cài đặt.
 	```sh
 	yum -y install git
-	git clone https://github.com/domanhduy/openstack-tools.git
+	git clone https://github.com/anhtuan204/openstack-tools.git
 
 	mv openstack-tools/scripts/OpenStack-Queens-No-HA/CentOS7 /root/
 
