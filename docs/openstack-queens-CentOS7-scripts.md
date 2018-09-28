@@ -213,8 +213,7 @@
 - Tải script cài đặt nova và neutron cho Compute1
 
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Queens-No-HA/CentOS7/noha_com_install.sh
-	
+	curl -O https://github.com/anhtuan204/openstack-tools/blob/master/scripts/OpenStack-Queens-No-HA/CentOS7/noha_com_install.sh	
 	bash noha_com_install.sh
 	```
 
@@ -280,10 +279,10 @@
 - Tạo subnet thuộc provider network. Lưu ý nhập đúng gateway, IP cấp cho máy ảo từ 200 tới 220.
 
 	```sh
-	openstack subnet create subnet1_provider --network provider \
-	 --allocation-pool start=192.168.84.130,end=192.168.84.148 \
-	 --dns-nameserver 8.8.8.8 --gateway 192.168.84.1 \
-	 --subnet-range 192.168.84.0/24
+openstack subnet create subnet1_provider --network provider \
+  --allocation-pool start=10.10.11.41,end=10.10.11.50 \
+  --dns-nameserver 8.8.8.8 --gateway 10.10.11.1 \
+  --subnet-range 10.10.11.0/24
 	```
 
 #### 4.2. Tạo flavor
@@ -291,7 +290,7 @@
 - Tạo flavor
 
 	```sh
-	openstack flavor create --id 0 --vcpus 1 --ram 64 --disk 1 m1.nano
+	openstack flavor create --id 0 --vcpus 1 --ram 128 --disk 1 m1.nano
 	openstack flavor create --id 1 --vcpus 1 --ram 1024 --disk 20 m1.tiny
 	openstack flavor create --id 2 --vcpus 2 --ram 2408 --disk 40 m1.small
 	```
@@ -330,24 +329,22 @@
 
 - Login vào máy chủ cinder và thực thi script dưới và khai báo các tham số về hostname và IP của các NICs.
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Rocky-No-HA/setup_ip.sh
-
-	bash setup_ip.sh cinder1 192.168.20.36 10.10.0.36 172.16.20.36 192.168.40.36
+	curl -O https://github.com/anhtuan204/openstack-tools/blob/master/scripts/OpenStack-Queens-No-HA/CentOS7/setup_ip.sh
+	bash setup_ip.sh cinder1 10.10.10.23 10.10.13.23 10.10.12.23 10.10.11.23
 	```
 
 #### 5.2. Cài đặt các gói bổ trợ cho Cinder node. 
 - Lưu ý: Đứng trên controller node, thực hiện script cài đặt các gói bổ trợ cho máy chủ Cinder trước khi cài.
-- Thực thi script dưới và chỉ ra  IP của máy chủ Cinder, trong hướng dẫn này là 192.168.20.36. Sau khi thực hiện script, bạn cần nhập mật khẩu của máy chủ Cinder
+- Thực thi script dưới và chỉ ra  IP của máy chủ Cinder, trong hướng dẫn này là 10.10.10.23. Sau khi thực hiện script, bạn cần nhập mật khẩu của máy chủ Cinder
 	```sh
-	bash noha_node_prepare.sh 192.168.20.36
+	bash noha_node_prepare.sh 10.10.10.23
 	```
 
 #### 5.3. Thực thi script cài đặt cinder trên máy chủ cinder
 
 - Login vào máy chủ cinder và thực hiện script dưới tại thư mục root. Lưu ý, ở script trên đã copy file `config.cfg` từ máy chủ controller sang máy chủ cinder. 
 	```sh
-	curl -O https://raw.githubusercontent.com/domanhduy/openstack-tools/master/scripts/OpenStack-Rocky-No-HA/noha_cinder_install.sh
-
+	curl -O https://github.com/anhtuan204/openstack-tools/blob/master/scripts/OpenStack-Queens-No-HA/CentOS7/noha_cinder_install.sh
 	bash noha_cinder_install.sh
 	```
 
