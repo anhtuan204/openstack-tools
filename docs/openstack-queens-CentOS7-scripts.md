@@ -279,10 +279,10 @@
 - Tạo subnet thuộc provider network. Lưu ý nhập đúng gateway, IP cấp cho máy ảo từ 200 tới 220.
 
 	```sh
-openstack subnet create subnet1_provider --network provider \
-  --allocation-pool start=10.10.11.41,end=10.10.11.50 \
-  --dns-nameserver 8.8.8.8 --gateway 10.10.11.1 \
-  --subnet-range 10.10.11.0/24
+	openstack subnet create subnet1_provider --network provider \
+	--allocation-pool start=10.10.11.41,end=10.10.11.50 \
+	--dns-nameserver 8.8.8.8 --gateway 10.10.11.1 \
+	--subnet-range 10.10.11.0/24
 	```
 
 #### 4.2. Tạo flavor
