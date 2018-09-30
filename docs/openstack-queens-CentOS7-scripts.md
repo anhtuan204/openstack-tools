@@ -141,7 +141,12 @@
 	```sh
 	bash noha_ctl_glance.sh
 	```
-	
+- Kiểm tra lại: openstack image list
++--------------------------------------+--------+--------+
+| ID                                   | Name   | Status |
++--------------------------------------+--------+--------+
+| 0ae943ae-2b29-4089-9861-1a5c0b7fdc54 | cirros | active |
++--------------------------------------+--------+--------+
 #### 2.6. Thực thi script `noha_ctl_nova.sh.sh` để cài đặt `Nova`.
 
 - Thực thi script dưới để cài đặt Nova.
